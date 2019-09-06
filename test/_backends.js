@@ -9,7 +9,7 @@ const backendOptions = {
 };
 
 module.exports = function withBackends(createTestCases) {
-  ['memory', 'memcached'].forEach(backendType => {
+  [null, 'memory', 'memcached'].forEach(backendType => {
     describe(`with backend "${backendType}"`, () => {
       const cache = new Cache({
         backend: defaults({ type: backendType }, backendOptions),
